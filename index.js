@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-
+const fetch = require("node-fetch");
 
 fetch('https://api.github.com/users/github')
     .then(res => res.json())
