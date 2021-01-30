@@ -2,19 +2,26 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const fetch = require("node-fetch");
 
-fetch('https://api.github.com/users/github')
-    .then(res => res.json())
-    .then(json => console.log(json));
+var Pokedex = require('pokedex-promise-v2');
+var P = new Pokedex();
 
-// try {
-//   // `who-to-greet` input defined in action metadata file
-//   const nameToGreet = core.getInput('who-to-greet');
-//   console.log(`Hello ${nameToGreet}!`);
-//   const time = (new Date()).toTimeString();
-//   core.setOutput("time", time);
-//   // Get the JSON webhook payload for the event that triggered the workflow
-//   const payload = JSON.stringify(github.context.payload, undefined, 2)
-//   console.log(`The event payload: ${payload}`);
-// } catch (error) {
-//   core.setFailed(error.message);
-// }
+  P.getPokemonByName('eevee') // with Promise
+    .then(function(response) {
+      console.log(response);
+    })
+    .catch(function(error) {
+      console.log('There was an ERROR: ', error);
+    });
+
+  P.getPokemonByName(34, function(response, error) { // with callback
+      if(!error) {
+        console.log(response);
+      } else {
+        console.log(error)
+      }
+    });
+
+  P.resource(['/api/v2/pokemon/36', 'api/v2/berry/8', 'https://pokeapi.co/api/v2/ability/9/'])
+    .then(function(response) {
+      console.log(response); // resource function accepts singles or arrays of URLs/paths
+    });
