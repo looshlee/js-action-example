@@ -22,7 +22,7 @@ let getHubbers = async (list) => {
 let createList = (list) => {
  console.log(list, "lists")
  getHubbers(list).then((value) => console.log(value))
- console.log('hub', hubbers)
+
 }
 
 createList(["looshlee", "ernest-phillips", "rsese"])
