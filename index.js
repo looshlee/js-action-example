@@ -15,7 +15,7 @@ let loopHubbers = (list) => {
       octokit.users.getByUsername({
       username: user,
     }).then(({ data }) => {
-       console.log("data", data)
+//        console.log("data", data)
       hubbers.push(data.id)
      }).catch((e) => {
        console.log("error")
@@ -37,6 +37,7 @@ createList().then((blob) => {
  console.log(blob, 'blob')
 }).catch(e => console.log(e));
 
+createList()
 
 // let createList = (list) => {
 //  console.log(list, "lists")
