@@ -15,7 +15,7 @@ function createList(users) {
       octokit.users.getByUsername({
       username: user,
     }).then(({ data }) => {
-      hubbers = data
+      hubbers = [...hubbers, ... data]
      })
    });
    
