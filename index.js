@@ -15,6 +15,7 @@ let getHubbers = async (list) => {
       octokit.users.getByUsername({
       username: user,
     }).then(({ data }) => {
+       console.log("data", data)
       hubbers.push(data.id)
      }).catch((e) => {
        console.log("error")
