@@ -33,11 +33,9 @@ async function createList() {
   }
 }
 
-createList().then((blob) => {
- console.log(blob, "blob")
-}).catch (e => console.log(e));
-
 createList()
+
+console.log(createList())
 
 // let createList = (list) => {
 //  console.log(list, "lists")
