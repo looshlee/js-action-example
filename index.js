@@ -15,6 +15,6 @@ xhr.addEventListener("readystatechange", function() {
 
 xhr.open("GET", "https://api.twitter.com/2/users/by/username/chrissyteigen");
 xhr.setRequestHeader("Authorization", "Bearer " + twitter_token);
-xhr.setRequestHeader("Cookie", "guest_id=v1%3A161205311113227072; personalization_id=\"v1_mNAAzbye8dMSjSr3YnmuVg==\"");
+// xhr.setRequestHeader("Cookie", "guest_id=v1%3A161205311113227072; personalization_id=\"v1_mNAAzbye8dMSjSr3YnmuVg==\"");
 
 xhr.send();
