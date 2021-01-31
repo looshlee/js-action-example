@@ -19,6 +19,7 @@ let createList = (list) => {
  let hubbers = []
  console.log(list, "lists")
  list.forEach(user => getUser(user).then((value) => hubbers.push(value.id)))
+ console.log('hub', hubbers)
 }
 
 createList(["looshlee", "ernest-phillips", "rsese"])
