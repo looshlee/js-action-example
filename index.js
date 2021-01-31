@@ -13,6 +13,7 @@ function getGitHubID() {
     octokit.users.getByUsername({
     username: "looshlee",
   }).then(({ data }) => {
+     // moving the GITHUB_ID back by 5 so I'm included in the list of returned users
      let modified_id = data.id - 5
      getList(modified_id)
     })
@@ -34,14 +35,24 @@ function getList(id) {
 
 function userNameOnly(data) {
    // The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
- const results = data.map(data => data.login)
+   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#comparing_traditional_functions_to_arrow_functions
+  //  For each user, map data.login to replace user
+
+ 
+ let oldResults = data.map(function(user) {
+    return user => data.login
+})
+ 
+ let results = data.map(user => data.login)
+ 
+ console.log(oldResults, "oldResults")
  console.log(results, "results")
 }
 
 
 function isEmployee(data) {
  let employees =data.filter(user => user.site_admin)
- return employees.login
+ return employees.login + "is a Hubber!"
  console.log(employees, "emp")
 }
 
