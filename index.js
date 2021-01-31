@@ -15,23 +15,21 @@ function createList(users) {
       octokit.users.getByUsername({
       username: user,
     }).then(({ data }) => {
-      hubbers.push(data.id)
-       console.log("hubbers in here", hubbers)
-     }).then(({ res }) => {
-       console.log("res", res)
+      const userList = getGitHubID(data.id)
+      console.log(userList 'ul')
      })
    });
 }
 
-// function getGitHubID(user) {
-//     octokit.users.getByUsername({
-//     username: user,
-//   }).then(({ data }) => {
-//      // moving the GITHUB_ID back by 5 so I'm included in the list of returned users
-//      let modified_id = data.id - 5
-//      getList(modified_id)
-//     })
-// }
+function getGitHubID(user) {
+    octokit.users.getByUsername({
+    username: user,
+  }).then(({ data }) => {
+     // moving the GITHUB_ID back by 5 so I'm included in the list of returned users
+     let modified_id = data.id - 5
+     getList(modified_id)
+    })
+}
 
 // https://octokit.github.io/rest.js/v18#users-list
 
@@ -42,6 +40,7 @@ function getList(id) {
      since: id,
     })
    .then(({ data }) => {
+  console.log(data, "get list")
   return data
 //      userNameOnly(data)  // show map
 //      isEmployee(data)   // show filter
