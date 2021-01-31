@@ -10,8 +10,12 @@ const octokit = new Octokit();
 // get my username because I need my GITHUB_ID to do subsequent queries
 
 function createList() {
-  getGitHubID("looshee").then(res => let looshlee = res)
-  getGitHubID("rsese").then(res => let rsese = res)
+  const looshlee = getGitHubID("looshee").then((data) => {
+    console.log(data, "looshlee data")
+  });
+  const rsese = getGitHubID("rsese").then((data) => {
+    console.log(data, "rsese data")
+  });
  console.log(looshlee, "loosh")
  console.log(rsese, "r")
 }
