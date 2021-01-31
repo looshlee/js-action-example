@@ -16,8 +16,9 @@ let getUser = async (user) => {
 };
 
 let createList = (list) => {
+ let hubbers = []
  console.log(list, "lists")
- list.forEach(user => getUser(user).then((value) => console.log(value, "VALUE")))
+ list.forEach(user => getUser(user).then((value) => hubbers.push(value.id)))
 }
 
 createList(["looshlee", "ernest-phillips", "rsese"])
