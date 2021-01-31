@@ -25,11 +25,9 @@ let getHubbers = async (list) => {
 };
 
 async function createList(list) {
- const hubbers = await getHubbers(list)
+ const hubbers = await getHubbers(list).then((data) => { console.log(data, "here") })
  return hubbers
 }
-
-console.log(createList(["looshlee", "ernest-phillips", "rsese"]), "hi!")
 
 // let createList = (list) => {
 //  console.log(list, "lists")
