@@ -14,7 +14,7 @@ function getGitHubID() {
     looshlee,
   }).then(({ data }) => {
      console.log(data, "data from get github ID")
-     let looshleeID = data
+     getList(data)
     })
 }
 
@@ -22,16 +22,22 @@ function getGitHubID() {
 // Good read: https://codeburst.io/a-simple-guide-to-es6-promises-d71bacd2e13a
 
 // https://octokit.github.io/rest.js/v18#users-list
-octokit.users
-  .list({
-    per_page: 100
-    since: looshleeID
-   })
-  .then(({ data }) => {
-    console.log(data, "userData")
-    console.log(data[0], "first person")
-    console.log(data.length, "length")
-  });
+
+function getList(data) {
+ console.log("in here", data)
+//  octokit.users
+//    .list({
+//      per_page: 100
+//      since: looshleeID
+//     })
+//    .then(({ data }) => {
+//      console.log(data, "userData")
+//      console.log(data[0], "first person")
+//      console.log(data.length, "length")
+//    });
+}
+
+
 
 // Compare: https://docs.github.com/en/rest/reference/repos/#list-organization-repositories
 // octokit.repos
