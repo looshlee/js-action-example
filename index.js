@@ -12,12 +12,6 @@ const octokit = new Octokit();
 let getID = (user) => {
    octokit.users.getByUsername({
    username: user,
-   }).then(({ data }) => {
-    console.log(data, "user")
-    return data
-     }).catch((e) => {
-       console.log("error")
-      })
    })
 }
 
