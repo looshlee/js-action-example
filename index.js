@@ -28,7 +28,7 @@ function getList(id) {
      since: id,
     })
    .then(({ data }) => {
-     const results = data.filter(data => data.id)
+     const results = data.map(data => data.id)
      
      console.log(results, "results")
    });
