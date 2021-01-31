@@ -24,11 +24,11 @@ async function createList(list) {
  console.log(hubbers, "hubbers")
 }
 
-let createList = (list) => {
- console.log(list, "lists")
- getHubbers(list).then((value) => console.log(value))
+// let createList = (list) => {
+//  console.log(list, "lists")
+//  getHubbers(list).then((value) => console.log(value))
 
-}
+// }
 
 createList(["looshlee", "ernest-phillips", "rsese"])
 
