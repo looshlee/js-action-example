@@ -12,7 +12,7 @@ const octokit = new Octokit();
 async function getGitHubID() {
     octokit.users.getByUsername({
     looshlee,
-  }).then(({ data }) => {
+  }).then({ data }) => {
      console.log(data, "data from get github ID")
      let looshleeID = data
     }
