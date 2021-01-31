@@ -76,7 +76,7 @@ function isEmployee(data) {
 }
 
 
-getGitHubID()
+createList()
 
 // Compare: https://docs.github.com/en/rest/reference/repos/#list-organization-repositories
 // octokit.repos
