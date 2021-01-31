@@ -10,9 +10,23 @@ const octokit = new Octokit();
 // get my username because I need my GITHUB_ID to do subsequent queries
 
 function createList() {
- getGitHubID("looshlee")
- getGitHubID("rsese")
-
+ 
+ Promise.all([
+  getGitHubID("looshee")
+  getGitHubID("rsese")
+  ]).then(function (res) {
+   return Promise.all(res.map(function (response) {
+   return response.json();
+ }));
+ }).then(function (data) {
+  // Log the data to the console
+  // You would do something with both sets of data here
+  console.log(data);
+ }).catch(function (error) {
+  // if there's an error, log it
+  console.log(error);
+ });
+ 
 }
 
 function getGitHubID(user) {
