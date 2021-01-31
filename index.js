@@ -33,7 +33,7 @@ async function createList() {
   }
 }
 
-createList.then((blob) => {
+createList().then((blob) => {
  console.log(blob, "blob")
 }).catch (e => console.log(e));
 
