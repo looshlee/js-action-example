@@ -2,19 +2,19 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const fetch = require("node-fetch");
 
-fetch('https://api.github.com/users/github')
-    .then(res => res.json())
-    .then(json => console.log(json));
+const twitter_token = core.getInput('twitter_token');
 
-// try {
-//   // `who-to-greet` input defined in action metadata file
-//   const nameToGreet = core.getInput('who-to-greet');
-//   console.log(`Hello ${nameToGreet}!`);
-//   const time = (new Date()).toTimeString();
-//   core.setOutput("time", time);
-//   // Get the JSON webhook payload for the event that triggered the workflow
-//   const payload = JSON.stringify(github.context.payload, undefined, 2)
-//   console.log(`The event payload: ${payload}`);
-// } catch (error) {
-//   core.setFailed(error.message);
-// }
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("GET", "https://api.twitter.com/2/users/by/username/chrissyteigen");
+xhr.setRequestHeader("Authorization", "Bearer " + twitter_token);
+xhr.setRequestHeader("Cookie", "guest_id=v1%3A161205311113227072; personalization_id=\"v1_mNAAzbye8dMSjSr3YnmuVg==\"");
+
+xhr.send();
