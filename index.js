@@ -50,7 +50,7 @@ function userNameOnly(data) {
 
 
 function isEmployee(data) {
- let employees =data.filter(user => user.site_admin)
+ const employees =data.filter(user => user.site_admin)
  console.log(employees, 'emp')
  console.log(employees.login + "is a Hubber!")
 }
