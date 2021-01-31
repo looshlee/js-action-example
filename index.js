@@ -21,6 +21,7 @@ let getHubbers = async (list) => {
 
 async function createList(list) {
  const hubbers = await getHubbers(list)
+ return hubbers
 }
 
 console.log(createList(["looshlee", "ernest-phillips", "rsese"]), "hi!")
