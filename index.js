@@ -34,6 +34,7 @@ function getList(id) {
 }
 
 function userNameOnly(data) {
+ console.log(data, "data")
    // The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#comparing_traditional_functions_to_arrow_functions
   //  For each user, map data.login to replace user
