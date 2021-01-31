@@ -10,8 +10,7 @@ const octokit = new Octokit();
 // get my username because I need my GITHUB_ID to do subsequent queries
 
 function createList(users) {
-   const list
-   
+
    users.forEach(user => {
       octokit.users.getByUsername({
       username: user,
