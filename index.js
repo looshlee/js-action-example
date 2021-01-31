@@ -40,11 +40,11 @@ function userNameOnly(data) {
   //  For each user, map data.login to replace user
 
  
- const oldResults = data.map(function(user) {
-    return user => data.login
+ const oldResults = data.map(function(data) {
+    return data => data.login
 })
  
- const results = data.map(user => data.login)
+ const results = data.map(data => data.login)
  
  console.log(oldResults, "oldResults")
  console.log(results, "results")
