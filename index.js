@@ -13,7 +13,8 @@ function getGitHubID() {
     octokit.users.getByUsername({
     username: "looshlee",
   }).then(({ data }) => {
-     getList(data.id)
+     let modified_id = data.id - 5
+     getList(modified_id)
     })
 }
 
@@ -26,12 +27,17 @@ function getList(id) {
      since: id,
     })
    .then(({ data }) => {
-  // The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
-     const results = data.map(data => data.id)
-     console.log(results, "results")
-     isEmployee(data)
+     userNameOnly(data)  // show map
+     isEmployee(data)   // show filter
    });
 }
+
+function userNameOnly(data) {
+   // The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+ const results = data.map(data => data.username)
+ console.log(results, "results")
+}
+
 
 function isEmployee(data) {
  let employees =data.filter(user => user.site_admin)
