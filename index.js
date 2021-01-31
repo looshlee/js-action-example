@@ -18,24 +18,24 @@ function getGitHubID() {
     })
 }
 
-// I should set my GITHUB_ID to a variable, but the above call is a promise! 
-// Good read: https://codeburst.io/a-simple-guide-to-es6-promises-d71bacd2e13a
-
 // https://octokit.github.io/rest.js/v18#users-list
 
 function getList(id) {
  console.log("in here", id)
  octokit.users
    .list({
-     per_page: 100,
+     per_page: 10,
      since: id,
     })
    .then(({ data }) => {
-     console.log(data, "userData")
-     console.log(data[0], "first person")
-     console.log(data.length, "length")
+     const results = data.filter(data => data.id)
+     
+     console.log(results, "results")
    });
 }
+
+// function mapUsers(users) {
+// }
 
 getGitHubID()
 
