@@ -28,8 +28,8 @@ async function createList() {
  let response = await loopHubbers(["looshlee", "ernest-phillips", "rsese"])
    if (!response.ok) {
     throw new Error("new error");
-  } else {
-    return await response.blob();
+  } catch(e) {
+    console.log(e);
   }
 }
 
