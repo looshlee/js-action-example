@@ -14,7 +14,7 @@ function getGitHubID() {
     username: "looshlee",
   }).then(({ data }) => {
      console.log(data, "data from get github ID")
-     getList(data)
+     getList(data.id)
     })
 }
 
@@ -23,18 +23,18 @@ function getGitHubID() {
 
 // https://octokit.github.io/rest.js/v18#users-list
 
-function getList(data) {
- console.log("in here", data)
-//  octokit.users
-//    .list({
-//      per_page: 100
-//      since: looshleeID
-//     })
-//    .then(({ data }) => {
-//      console.log(data, "userData")
-//      console.log(data[0], "first person")
-//      console.log(data.length, "length")
-//    });
+function getList(id) {
+ console.log("in here", id)
+ octokit.users
+   .list({
+     per_page: 100
+     since: id
+    })
+   .then(({ data }) => {
+     console.log(data, "userData")
+     console.log(data[0], "first person")
+     console.log(data.length, "length")
+   });
 }
 
 getGitHubID()
