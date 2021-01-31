@@ -9,10 +9,21 @@ const octokit = new Octokit();
  
 // get my username because I need my GITHUB_ID to do subsequent queries
 
-let getID = (user) => {
-   octokit.users.getByUsername({
+async function getID(user) {
+  let response = await octokit.users.getByUsername({
    username: user,
    })
+  
+
+  if (!response.ok) {
+    throw new Error("not okay");
+  } else {
+  
+    console.log("in else")
+    }
+
+    return response;
+  }
 }
 
 async function createList() {
