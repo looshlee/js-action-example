@@ -9,31 +9,26 @@ const octokit = new Octokit();
  
 // get my username because I need my GITHUB_ID to do subsequent queries
 
-const getData = async () => {
-    try {
-    	const response = await fetch("https://jsonplaceholder.typicode.com/todos/1")
-    	const data = await response.json()
-        console.log(data)
-    } catch (err) {
-       console.log(err)
-    }
-    
-}
-
-getData()
-
-function createList(users) {
-   let hubbers = []
-   users.forEach(user => {
-      octokit.users.getByUsername({
-      username: user,
-    }).then(({ data }) => {
-      hubbers.push(data.id)
-     }).catch((e) => {
-       console.log("error")
+let getUser = async () => {
+  octokit.users.getByUsername({
+        username: user,
       })
-   });
-}
+};
+
+getUser().then((value) => console.log(value, "VALUE"))
+
+// function createList(users) {
+//    let hubbers = []
+//    users.forEach(user => {
+//       octokit.users.getByUsername({
+//       username: user,
+//     }).then(({ data }) => {
+//       hubbers.push(data.id)
+//      }).catch((e) => {
+//        console.log("error")
+//       })
+//    });
+// }
 
 function getGitHubID(user) {
  console.log("in github id")
