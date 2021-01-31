@@ -1,20 +1,22 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+const { Octokit } = require("@octokit/rest");
 
-const twitter_token = core.getInput('twitter_token');
+// const twitter_token = core.getInput('twitter_token');
 
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = true;
+const octokit = new Octokit();
 
-xhr.addEventListener("readystatechange", function() {
-  if(this.readyState === 4) {
-    console.log(this.responseText);
-  }
-});
+// Compare: https://docs.github.com/en/rest/reference/repos/#list-organization-repositories
+octokit.repos
+  .listForOrg({
+    org: "octokit",
+    type: "public",
+  })
+  .then(({ data }) => {
+    console.log("data", data)
+  });
 
-xhr.open("GET", "https://api.twitter.com/2/users/by/username/chrissyteigen");
-xhr.setRequestHeader("Authorization", "Bearer " + twitter_token);
-// xhr.setRequestHeader("Cookie", "guest_id=v1%3A161205311113227072; personalization_id=\"v1_mNAAzbye8dMSjSr3YnmuVg==\"");
-
-xhr.send();
+// octokit.issues.listForRepo({
+//   owner,
+//   signalapp/Signal-Desktop,
+// });
