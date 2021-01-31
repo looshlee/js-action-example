@@ -5,8 +5,7 @@ const { Octokit } = require("@octokit/rest");
 // const token = core.getInput('github_token');
 
 const octokit = new Octokit();
-
-let userData = []
+let userData
 
 // https://octokit.github.io/rest.js/v18#users-list
 octokit.users
