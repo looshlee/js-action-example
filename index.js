@@ -4,18 +4,17 @@ const fetch = require("node-fetch");
 
 const twitter_token = core.getInput('twitter_token');
 
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
 
-var myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer " + twitter_token);
-myHeaders.append("Cookie", "guest_id=v1%3A161205311113227072; personalization_id=\"v1_mNAAzbye8dMSjSr3YnmuVg==\"");
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
 
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
-};
+xhr.open("GET", "https://api.twitter.com/2/users/by/username/chrissyteigen");
+xhr.setRequestHeader("Authorization", "Bearer " + twitter_token);
+xhr.setRequestHeader("Cookie", "guest_id=v1%3A161205311113227072; personalization_id=\"v1_mNAAzbye8dMSjSr3YnmuVg==\"");
 
-fetch("https://api.twitter.com/2/users/by/username/chrissyteigen", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+xhr.send();
