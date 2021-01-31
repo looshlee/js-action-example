@@ -15,19 +15,14 @@ function createList(users) {
       octokit.users.getByUsername({
       username: user,
     }).then(({ data }) => {
-      // moving the GITHUB_ID back by 5 so I'm included in the list of returned users
-      console.log("data", data)
+      let oneList = getList(data.id)
+      console.log(oneList, "oneList")
+//       console.log("data", data)
      })
    });
    
 
 }
-
-// function getGitHubID(user) {
-//     octokit.users.getByUsername({
-//     username: user,
-//   })
-// }
 
 // function getGitHubID(user) {
 //     octokit.users.getByUsername({
@@ -48,8 +43,8 @@ function getList(id) {
      since: id,
     })
    .then(({ data }) => {
-     userNameOnly(data)  // show map
-     isEmployee(data)   // show filter
+//      userNameOnly(data)  // show map
+//      isEmployee(data)   // show filter
    });
 }
 
