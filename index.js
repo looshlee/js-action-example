@@ -17,11 +17,14 @@ function createList(users) {
     }).then(({ data }) => {
       const userList = getGitHubID(data.id)
       console.log(userList, 'ul')
-     })
+     }).catch((e) => {
+       console.log("error")
+      })
    });
 }
 
 function getGitHubID(user) {
+ console.log("in github id")
     octokit.users.getByUsername({
     username: user,
   }).then(({ data }) => {
