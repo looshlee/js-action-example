@@ -15,12 +15,11 @@ function createList(users) {
       octokit.users.getByUsername({
       username: user,
     }).then(({ data }) => {
-      let oneList = getList(data.id)
-      console.log(oneList, "oneList")
-//       console.log("data", data)
+      const hubbers = data.map(hubber => hubber.id)
      })
    });
    
+ console.log("hubbers", hubbers)
 
 }
 
