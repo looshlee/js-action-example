@@ -16,7 +16,7 @@ let getUser = async (user) => {
 };
 
 let createList = (list) => {
- console.log(lists, "lists")
+ console.log(list, "lists")
  list.forEach(user => getUser(user).then((value) => console.log(value, "VALUE")))
 }
 
