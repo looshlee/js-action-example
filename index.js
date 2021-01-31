@@ -41,7 +41,7 @@ function userNameOnly(data) {
 
  
  const oldResults = data.map(function(data) {
-    return data => data.login
+    return data = data.login
 })
  
  const results = data.map(data => data.login)
