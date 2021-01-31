@@ -9,23 +9,13 @@ const octokit = new Octokit();
  
 // get my username because I need my GITHUB_ID to do subsequent queries
 
-async function getGitHubID() {
+function getGitHubID() {
     octokit.users.getByUsername({
     looshlee,
   }).then(({ data }) => {
      console.log(data, "data from get github ID")
      let looshleeID = data
     })
-}
-
-
-async function getGitHubID() {
-    octokit.users.getByUsername({
-    looshlee,
-  }).then({ data }) => {
-     console.log(data, "data from get github ID")
-     let looshleeID = data
-    }
 }
 
 // I should set my GITHUB_ID to a variable, but the above call is a promise! 
