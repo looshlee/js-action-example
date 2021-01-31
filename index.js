@@ -11,11 +11,13 @@ const octokit = new Octokit();
 
 let getHubbers = async (list) => {
  let hubbers = []
+ console.log(list, "list")
  list.forEach(user =>
    hubbers.push(octokit.users.getByUsername({
         username: user,
       }))
    )
+ console.log("hubbers", hubbers)
  return hubbers
 };
 
