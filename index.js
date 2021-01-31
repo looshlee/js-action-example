@@ -9,13 +9,20 @@ const octokit = new Octokit();
  
 // get my username because I need my GITHUB_ID to do subsequent queries
 
-let getUser = async () => {
+let getUser = async (user) => {
   return octokit.users.getByUsername({
-        username: "looshlee",
+        username: user,
       })
 };
 
-getUser().then((value) => console.log(value, "VALUE"))
+let createList = (list) => {
+ console.log(lists, "lists")
+ list.forEach(user => getUser(user).then((value) => console.log(value, "VALUE")))
+}
+
+createList(["looshlee", "ernest-phillips", "rsese"])
+
+// getUser().then((value) => console.log(value, "VALUE"))
 
 // function createList(users) {
 //    let hubbers = []
@@ -80,7 +87,7 @@ function isEmployee(data) {
 }
 
 
-// createList(["looshlee", "ernest-phillips", "rsese"])
+
 
 // Compare: https://docs.github.com/en/rest/reference/repos/#list-organization-repositories
 // octokit.repos
