@@ -11,12 +11,11 @@ let userData
 octokit.users
   .list()
   .then(({ data }) => {
-    let userData = data
+    console.log(data, "userData")
+    console.log(data[0], "first person")
+    console.log(data.length, "length")
   });
 
-console.log(userData, "userData")
-console.log(userData[0], "first person")
-console.log(userData.length, "length")
 // Compare: https://docs.github.com/en/rest/reference/repos/#list-organization-repositories
 // octokit.repos
 //   .listForOrg({
