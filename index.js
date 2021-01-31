@@ -22,14 +22,6 @@ const getData = async () => {
 
 getData()
 
-
-function loopHubbers(Users) {
- users.forEach(user => {
-      octokit.users.getByUsername({
-      username: user,
-    })
-}
-
 function createList(users) {
    let hubbers = []
    users.forEach(user => {
