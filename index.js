@@ -9,16 +9,19 @@ const octokit = new Octokit();
  
 // get my username because I need my GITHUB_ID to do subsequent queries
 
-let getUser = async (user) => {
-  return octokit.users.getByUsername({
+let getHubbers = async (list) => {
+ let hubbers = []
+ list.forEach(user =>
+   hubbers.push(octokit.users.getByUsername({
         username: user,
-      })
+      }))
+   )
+ return hubbers
 };
 
 let createList = (list) => {
- let hubbers = []
  console.log(list, "lists")
- list.forEach(user => getUser(user).then((value) => hubbers.push(value.id)))
+ getHubbers(list).then((value) => console.log(value))
  console.log('hub', hubbers)
 }
 
