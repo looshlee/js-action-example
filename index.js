@@ -13,17 +13,13 @@ async function getGitHubID() {
     octokit.users.getByUsername({
     looshlee,
   }).then(({ data }) => {
-     return await data
+     console.log(data, "data from get github ID")
+     let looshleeID = data
     }
 }
- getGitHubID().then(data) => {
-     const looshleeID = data
-    }
 
 // I should set my GITHUB_ID to a variable, but the above call is a promise! 
 // Good read: https://codeburst.io/a-simple-guide-to-es6-promises-d71bacd2e13a
-
-console.log("looshleeID", looshleeID)
 
 // https://octokit.github.io/rest.js/v18#users-list
 octokit.users
