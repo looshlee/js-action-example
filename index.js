@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const fetch = require("node-fetch");
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 const twitter_token = core.getInput('twitter_token');
 
