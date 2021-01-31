@@ -43,6 +43,7 @@ function getList(id) {
      since: id,
     })
    .then(({ data }) => {
+  return data
 //      userNameOnly(data)  // show map
 //      isEmployee(data)   // show filter
    });
