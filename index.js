@@ -11,7 +11,7 @@ const octokit = new Octokit();
 
 let getUser = async () => {
   octokit.users.getByUsername({
-        username: user,
+        username: "looshlee",
       })
 };
 
@@ -80,7 +80,7 @@ function isEmployee(data) {
 }
 
 
-createList(["looshlee", "ernest-phillips", "rsese"])
+// createList(["looshlee", "ernest-phillips", "rsese"])
 
 // Compare: https://docs.github.com/en/rest/reference/repos/#list-organization-repositories
 // octokit.repos
