@@ -9,9 +9,15 @@ const octokit = new Octokit();
  
 // get my username because I need my GITHUB_ID to do subsequent queries
 
-function getGitHubID() {
+function createList() {
+ getGitHubID("looshlee")
+ getGitHubID("rsese")
+
+}
+
+function getGitHubID(user) {
     octokit.users.getByUsername({
-    username: "looshlee",
+    username: user,
   }).then(({ data }) => {
      // moving the GITHUB_ID back by 5 so I'm included in the list of returned users
      let modified_id = data.id - 5
