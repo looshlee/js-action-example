@@ -17,11 +17,10 @@ function createList(users) {
     }).then(({ data }) => {
       hubbers.push(data.id)
        console.log("hubbers in here", hubbers)
+     }).then(({ res }) => {
+       console.log("res", res)
      })
    });
-   
- console.log("hubbers", hubbers)
-
 }
 
 // function getGitHubID(user) {
