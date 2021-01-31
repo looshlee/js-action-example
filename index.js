@@ -34,11 +34,9 @@ function getList(id) {
 }
 
 function userNameOnly(data) {
- console.log(data, "data")
    // The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#comparing_traditional_functions_to_arrow_functions
   //  For each user, take the entire user object and replace it with user.login
-
  
  const oldResults = data.map(function(user) {
     return user = user.login
@@ -53,6 +51,7 @@ function userNameOnly(data) {
 
 function isEmployee(data) {
  let employees =data.filter(user => user.site_admin)
+ console.log(employees, 'emp')
  console.log(employees.login + "is a Hubber!")
 }
 
