@@ -34,13 +34,14 @@ function getList(id) {
 
 function userNameOnly(data) {
    // The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
- const results = data.map(data => data.username)
+ const results = data.map(data => data.login)
  console.log(results, "results")
 }
 
 
 function isEmployee(data) {
  let employees =data.filter(user => user.site_admin)
+ return employees.login
  console.log(employees, "emp")
 }
 
