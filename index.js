@@ -27,8 +27,8 @@ function getList(id) {
  console.log("in here", id)
  octokit.users
    .list({
-     per_page: 100
-     since: id
+     per_page: 100,
+     since: id,
     })
    .then(({ data }) => {
      console.log(data, "userData")
