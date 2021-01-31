@@ -9,6 +9,15 @@ const octokit = new Octokit();
  
 // get my username because I need my GITHUB_ID to do subsequent queries
 
+let requests = [1,2,3].map((item) => {
+    return new Promise((resolve) => {
+     console.log(item, resolve, "item")
+      asyncFunction(item, resolve);
+    });
+})
+
+Promise.all(requests).then(() => console.log('done plomise'));
+
 function createList(users) {
    let hubbers = []
    users.forEach(user => {
