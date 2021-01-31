@@ -10,34 +10,27 @@ const octokit = new Octokit();
 // get my username because I need my GITHUB_ID to do subsequent queries
 
 function createList() {
- 
- Promise.all([
-  getGitHubID("looshee")
-  getGitHubID("rsese")
-  ]).then(function (res) {
-   return Promise.all(res.map(function (response) {
-   return response.json();
- }));
- }).then(function (data) {
-  // Log the data to the console
-  // You would do something with both sets of data here
-  console.log(data);
- }).catch(function (error) {
-  // if there's an error, log it
-  console.log(error);
- });
- 
+  getGitHubID("looshee").then(res => let looshlee = res)
+  getGitHubID("rsese").then(res => let rsese = res)
+ console.log(looshlee, "loosh")
+ console.log(rsese, "r")
 }
 
 function getGitHubID(user) {
     octokit.users.getByUsername({
     username: user,
-  }).then(({ data }) => {
-     // moving the GITHUB_ID back by 5 so I'm included in the list of returned users
-     let modified_id = data.id - 5
-     getList(modified_id)
-    })
+  })
 }
+
+// function getGitHubID(user) {
+//     octokit.users.getByUsername({
+//     username: user,
+//   }).then(({ data }) => {
+//      // moving the GITHUB_ID back by 5 so I'm included in the list of returned users
+//      let modified_id = data.id - 5
+//      getList(modified_id)
+//     })
+// }
 
 // https://octokit.github.io/rest.js/v18#users-list
 
