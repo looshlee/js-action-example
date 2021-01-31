@@ -16,7 +16,7 @@ function createList(users) {
       username: user,
     }).then(({ data }) => {
       const userList = getGitHubID(data.id)
-      console.log(userList 'ul')
+      console.log(userList, 'ul')
      })
    });
 }
