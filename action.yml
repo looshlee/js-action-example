@@ -1,9 +1,7 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
-  client:  # id of input
-    required: true
-   secret:
+  twitter_token:  # id of input
     required: true
 outputs:
   time: # id of output
