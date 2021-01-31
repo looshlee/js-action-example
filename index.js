@@ -24,12 +24,20 @@ let loopHubbers = (list) => {
  return hubbers
 }
 
+async function createList() {
+ let response = await loopHubbers(["looshlee", "ernest-phillips", "rsese"])
+   if (!response.ok) {
+    throw new Error("new error");
+  } else {
+    return await response.blob();
+  }
+}
 
-loopHubbers("looshlee", "ernest-phillips", "rsese").then((blob) => { 
+createList.then((blob) => {
  console.log(blob, "blob")
+}).catch (e => console.log(e));
 
-}).catch(e => console.log(e) );
-
+createList()
 
 // let createList = (list) => {
 //  console.log(list, "lists")
