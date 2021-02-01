@@ -77,7 +77,7 @@ function userNameOnly(data) {
 
 function isEmployee(data) {
  const employees =data.filter(user => user.site_admin)
- employees.forEach(hubber => console.log(hubber.login + "is a Hubber!")
+ employees.forEach(hubber => console.log(hubber.login + "is a Hubber!"));
 }
 
 
