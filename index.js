@@ -39,12 +39,13 @@ createList()
 })
 
 async function generateList(values) {
+ let newList = []
    for (const value of values) {
     const contents = await getList(value);
     console.log(contents.data, "contents");
+    newList.push(contents.data)
   }
- 
- console.log(contents.data, "CONTENTS")
+ console.log(newList, "newlist")
   
 //   console.log(a, "REZZY")
 
