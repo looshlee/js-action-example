@@ -39,14 +39,14 @@ createList()
 })
 
 async function generateList(values) {
-  let a = for (const value of values) {
+   for (const value of values) {
     const contents = await getList(value);
-    console.log(contents);
+    console.log(contents, "contents");
   }
  
  console.log(values, 'genlistvalues')
   
-  console.log(a, "REZZY")
+//   console.log(a, "REZZY")
 
 }
 
