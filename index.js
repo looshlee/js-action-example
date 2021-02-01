@@ -31,7 +31,8 @@ async function createList() {
 createList()
 .catch((e) =>
   console.log(e, "error")
-).then(() => {
+).then((values) => {
+ console.log(values, "values")
  generateList(values).catch((e) =>
   console.log(e)
  );
