@@ -35,9 +35,11 @@ async function generateList(ids) {
     userList.push(sublist.data)
   }
  
+ console.log("Before Flattening", userList)
  // we use .flat() to flatten an array 
  userNameOnly(userList.flat())
  isEmployee(userList.flat())
+ oldestAccount(userList.flat())
 }
 
 // https://octokit.github.io/rest.js/v18#users-list
@@ -73,6 +75,18 @@ function isEmployee(data) {
  // The filter() method creates a new array with all elements that pass the test implemented by the provided function.
  const employees = data.filter(user => user.site_admin)
  employees.forEach(hubber => console.log(hubber.login + " is a Hubber!"));
+}
+
+function oldestAccount(data) {
+ let createdDate = []
+ data.forEach(d => createdDate.push(d.created_at))
+ console.log("createdDate", createdDate)
+ 
+ const oldest = createdDate.reduce((c, n) => 
+                           
+  Date.parse(n) < Date.parse(c) ? n : c
+);
+ console.log(oldest);
 }
 
 // calls the function 
