@@ -27,6 +27,7 @@ async function createList() {
 
 
 async function generateList(ids) {
+ console.log("These are our Github IDs " + id)
  let userList = []
    for (const id of ids) {
     const sublist = await getList(id);
