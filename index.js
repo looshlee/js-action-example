@@ -78,13 +78,13 @@ function isEmployee(data) {
 }
 
 function oldestAccount(data) {
- let createdDate = []
- data.forEach(d => createdDate.push(d.created_at))
- console.log("createdDate", createdDate)
+ let ids = []
+ data.forEach(d => ids.push(d.id))
+ console.log("ids", ids)
  
- const oldest = createdDate.reduce((c, n) => 
+ const oldest = ids.reduce((c, n) => 
                            
-  Date.parse(n) < Date.parse(c) ? n : c
+  n < c ? n : c
 );
  console.log(oldest);
 }
