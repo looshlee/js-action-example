@@ -34,7 +34,8 @@ createList()
 
 async function generateList(values) {
   let a = values.forEach(id => { getList(id) } )
-  let values = await Promise.all(a)
+  let results = await Promise.all(a)
+  console.log(results, "REZZY")
 
 }
 
