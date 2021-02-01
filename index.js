@@ -40,9 +40,9 @@ createList()
 
 async function generateList(values) {
  console.log(values, 'genlistvalues')
-  let a = getList(values[0])
-  let results = await Promise.all(a)
-  console.log(results, "REZZY")
+  let a = await getList(values[0])
+//   let results = await Promise.all(a)
+  console.log(a, "REZZY")
 
 }
 
@@ -50,12 +50,12 @@ async function generateList(values) {
 
 async function getList(id) {
  console.log("in get list", id, typeof(id))
-  let response = await octokit.users
-   .list({
-     per_page: 10,
-     since: 14810964,
-    })
-  return response
+//   let response = await octokit.users
+//    .list({
+//      per_page: 10,
+//      since: 14810964,
+//     })
+//   return response
 }
 
 
