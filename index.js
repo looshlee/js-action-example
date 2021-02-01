@@ -23,7 +23,11 @@ async function createList() {
   let c = getID('rsese');
 
   let values = await Promise.all([a, b, c]);
-  generateList(values)
+ 
+  generateList(values).catch((e) =>
+  console.log(e)
+ );
+
   console.log(values, "values")
 }
 
@@ -42,7 +46,7 @@ async function generateList(values) {
 // https://octokit.github.io/rest.js/v18#users-list
 
 async function getList(id) {
- console.log("in get list")
+ console.log("in get list", id, typeof(id))
   let response = await  octokit.users
    .list({
      per_page: 10,
