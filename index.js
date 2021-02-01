@@ -32,12 +32,12 @@ async function createList() {
 
 createList()
 .catch((e) =>
-  console.log(e)
+  console.log(e, "error")
 );
 
 async function generateList(values) {
  console.log(values, 'genlistvalues')
-  let a = values.forEach(id => { getList(id) } )
+  let a = getList(values[0])
   let results = await Promise.all(a)
   console.log(results, "REZZY")
 
