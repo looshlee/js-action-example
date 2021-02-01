@@ -47,10 +47,10 @@ async function generateList(values) {
 
 async function getList(id) {
  console.log("in get list", id, typeof(id))
-  let response = await  octokit.users
+  let response = await octokit.users
    .list({
      per_page: 10,
-     since: id,
+     since: 14810964,
     })
   return response
 }
