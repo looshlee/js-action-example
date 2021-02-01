@@ -13,17 +13,9 @@ async function getID(user) {
   let response = await octokit.users.getByUsername({
    username: user,
    })
-
-  let content;
-
-  if (!response.ok) {
-    throw new Error("error");
-  } else {
-    content = await response
-    
-  }
- return content;
+  return response
 }
+
 
 async function createList() {
   let a = getID('looshlee');
