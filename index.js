@@ -16,26 +16,26 @@ async function getID(user) {
   return response.data.id
 }
 
-
 async function createList() {
   let a = getID('looshlee');
   let b = getID('ernest-phillips');
   let c = getID('rsese');
 
-  let values = await Promise.all([a, b, c]);
-  return values
+  let ids = await Promise.all([a, b, c]);
+  return ids
 }
 
 
-async function generateList(values) {
- let newList = []
-   for (const value of values) {
-    const contents = await getList(value);
-    newList.push(contents.data)
+async function generateList(ids) {
+ let userList = []
+   for (const id of ids) {
+    const sublist = await getList(id);
+    userList.push(sublist.data)
   }
  
- userNameOnly(newList.flat())
- isEmployee(newList.flat())
+ // we use .flat() to flatten an array 
+ userNameOnly(userList.flat())
+ isEmployee(userList.flat())
 }
 
 // https://octokit.github.io/rest.js/v18#users-list
