@@ -41,10 +41,10 @@ createList()
 async function generateList(values) {
    for (const value of values) {
     const contents = await getList(value);
-    console.log(contents, "contents");
+    console.log(contents.data, "contents");
   }
  
- console.log(values, 'genlistvalues')
+ console.log(contents.data, "CONTENTS")
   
 //   console.log(a, "REZZY")
 
@@ -56,7 +56,7 @@ async function getList(id) {
  console.log("in get list", id, typeof(id))
   let response = await octokit.users
    .list({
-     per_page: 10,
+     per_page: 2,
      since: id,
     })
   return response
