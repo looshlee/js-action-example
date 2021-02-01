@@ -23,7 +23,6 @@ async function createList() {
   let c = getID('rsese');
 
   let values = await Promise.all([a, b, c]);
-  console.log(values.then(), "values then?")
   generateList(values).catch((e) =>
   console.log(e)
  );
