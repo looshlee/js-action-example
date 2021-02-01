@@ -13,7 +13,7 @@ async function getID(user) {
   let response = await octokit.users.getByUsername({
    username: user,
    })
-  console.log("This is " + response.data.login + "and this is their id: " + response.data.id)
+  console.log("This is " + response.data.login + " and this is their id: " + response.data.id)
   return response.data.id
 }
 
@@ -28,7 +28,7 @@ async function createList() {
 
 
 async function generateList(ids) {
- console.log("These are our Github IDs " + id)
+ console.log("These are our Github IDs " + ids)
  let userList = []
    for (const id of ids) {
     const sublist = await getList(id);
