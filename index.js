@@ -22,8 +22,8 @@ async function createList() {
   let b = getID('ernest-phillips');
   let c = getID('rsese');
 
-  let values = await Promise.all([a, b, c]);
-
+  let values = await Promise.all([a.id, b.id, c.id]);
+  generateList(values)
   console.log(values, "values")
 }
 
@@ -32,33 +32,26 @@ createList()
   console.log(e)
 );
 
+async function generateList(values) {
+  let a = values.forEach(id => { getList(id) } )
+  let values = await Promise.all(a)
 
-function getGitHubID(user) {
- console.log("in github id")
-    octokit.users.getByUsername({
-    username: user,
-  }).then(({ data }) => {
-     // moving the GITHUB_ID back by 5 so I'm included in the list of returned users
-     let modified_id = data.id - 5
-     getList(modified_id)
-    })
 }
 
 // https://octokit.github.io/rest.js/v18#users-list
 
-function getList(id) {
- octokit.users
+async function getList(id) {
+ console.log("in get list")
+  let response = await  octokit.users
    .list({
      per_page: 10,
      since: id,
     })
-   .then(({ data }) => {
-  console.log(data, "get list")
-  return data
-//      userNameOnly(data)  // show map
-//      isEmployee(data)   // show filter
-   });
+  return response
 }
+
+
+
 
 function userNameOnly(data) {
    // The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
