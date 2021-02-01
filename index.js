@@ -42,7 +42,8 @@ async function generateList(values) {
     newList.push(contents.data)
   }
  
- console.log(newList, "newlist")
+ 
+ console.log(newList.flat(), "newlist")
 
 }
 
