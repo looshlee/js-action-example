@@ -13,7 +13,7 @@ async function getID(user) {
   let response = await octokit.users.getByUsername({
    username: user,
    })
-  console.log(response, 'res')
+  console.log(response.data.id, 'res')
   return response
 }
 
