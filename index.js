@@ -24,15 +24,12 @@ async function createList() {
 
   let values = await Promise.all([a, b, c]);
   return values
-
-  console.log(values, "values")
 }
 
 createList()
 .catch((e) =>
   console.log(e, "error")
 ).then((values) => {
- console.log(values, "in the then")
  generateList(values).catch((e) =>
   console.log(e)
  );
@@ -42,23 +39,21 @@ async function generateList(values) {
  let newList = []
    for (const value of values) {
     const contents = await getList(value);
-    console.log(contents.data, "contents");
     newList.push(contents.data)
   }
+ 
  console.log(newList, "newlist")
-  
-//   console.log(a, "REZZY")
 
 }
 
 // https://octokit.github.io/rest.js/v18#users-list
 
 async function getList(id) {
- console.log("in get list", id, typeof(id))
+ let modified_id = id - 5
   let response = await octokit.users
    .list({
-     per_page: 2,
-     since: id,
+     per_page: 10,
+     since: modified_id,
     })
   return response
 }
