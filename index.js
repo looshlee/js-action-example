@@ -13,17 +13,16 @@ async function getID(user) {
   let response = await octokit.users.getByUsername({
    username: user,
    })
-  
+
+  let content;
 
   if (!response.ok) {
-    throw new Error("not okay");
+    throw new Error("error");
   } else {
-  
-    console.log("in else")
-    }
-
-    return response;
+    content = await response
+    
   }
+ return content;
 }
 
 async function createList() {
