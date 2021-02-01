@@ -23,9 +23,7 @@ async function createList() {
   let c = getID('rsese');
 
   let values = await Promise.all([a, b, c]);
-  generateList(values).catch((e) =>
-  console.log(e)
- );
+
 
   console.log(values, "values")
 }
@@ -33,7 +31,13 @@ async function createList() {
 createList()
 .catch((e) =>
   console.log(e, "error")
-);
+).then() => {
+//     console.log("data", data)
+//   });
+ generateList(values).catch((e) =>
+  console.log(e)
+ );
+}
 
 async function generateList(values) {
  console.log(values, 'genlistvalues')
