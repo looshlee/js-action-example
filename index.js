@@ -77,24 +77,8 @@ function userNameOnly(data) {
 
 function isEmployee(data) {
  const employees =data.filter(user => user.site_admin)
- console.log(employees, 'emp')
- console.log(employees.login + "is a Hubber!")
+ employees.forEach(hubber => console.log(hubber.login + "is a Hubber!")
 }
 
 
 
-
-// Compare: https://docs.github.com/en/rest/reference/repos/#list-organization-repositories
-// octokit.repos
-//   .listForOrg({
-//     org: "octokit",
-//     type: "public",
-//   })
-//   .then(({ data }) => {
-//     console.log("data", data)
-//   });
-
-// octokit.issues.listForRepo({
-//   owner,
-//   signalapp/Signal-Desktop,
-// });
