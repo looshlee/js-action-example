@@ -26,14 +26,6 @@ async function createList() {
   return values
 }
 
-createList()
-.catch((e) =>
-  console.log(e, "error")
-).then((values) => {
- generateList(values).catch((e) =>
-  console.log(e)
- );
-})
 
 async function generateList(values) {
  let newList = []
@@ -76,9 +68,17 @@ function userNameOnly(data) {
 
 
 function isEmployee(data) {
- const employees =data.filter(user => user.site_admin)
+ // The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+ const employees = data.filter(user => user.site_admin)
  employees.forEach(hubber => console.log(hubber.login + " is a Hubber!"));
 }
 
-
-
+// calls the function 
+createList()
+  .catch((e) =>
+     console.log(e, "error")
+  ).then((values) => {
+    generateList(values).catch((e) =>
+    console.log(e)
+  );
+})
