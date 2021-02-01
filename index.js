@@ -13,8 +13,7 @@ async function getID(user) {
   let response = await octokit.users.getByUsername({
    username: user,
    })
-  console.log(response.data.id, 'res')
-  return response
+  return response.data
 }
 
 
@@ -25,7 +24,7 @@ async function createList() {
 
   let values = await Promise.all([a, b, c]);
 
-//   console.log(values, "values")
+  console.log(values, "values")
 }
 
 createList()
@@ -33,28 +32,6 @@ createList()
   console.log(e)
 );
 
-// let createList = (list) => {
-//  console.log(list, "lists")
-//  getHubbers(list).then((value) => console.log(value))
-
-// }
-
-// createList(["looshlee", "ernest-phillips", "rsese"])
-
-// getUser().then((value) => console.log(value, "VALUE"))
-
-// function createList(users) {
-//    let hubbers = []
-//    users.forEach(user => {
-//       octokit.users.getByUsername({
-//       username: user,
-//     }).then(({ data }) => {
-//       hubbers.push(data.id)
-//      }).catch((e) => {
-//        console.log("error")
-//       })
-//    });
-// }
 
 function getGitHubID(user) {
  console.log("in github id")
