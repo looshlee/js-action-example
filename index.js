@@ -13,7 +13,7 @@ async function getID(user) {
   let response = await octokit.users.getByUsername({
    username: user,
    })
-  return response.data
+  return response.data.id
 }
 
 
@@ -22,7 +22,7 @@ async function createList() {
   let b = getID('ernest-phillips');
   let c = getID('rsese');
 
-  let values = await Promise.all([a.id, b.id, c.id]);
+  let values = await Promise.all([a, b, c]);
   generateList(values)
   console.log(values, "values")
 }
