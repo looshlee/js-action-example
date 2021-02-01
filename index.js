@@ -31,13 +31,11 @@ async function createList() {
 createList()
 .catch((e) =>
   console.log(e, "error")
-).then() => {
-//     console.log("data", data)
-//   });
+).then(() => {
  generateList(values).catch((e) =>
   console.log(e)
  );
-}
+})
 
 async function generateList(values) {
  console.log(values, 'genlistvalues')
