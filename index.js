@@ -44,7 +44,7 @@ async function generateList(values) {
  
  
  console.log(newList.flat(), "newlist")
-
+ userNameOnly(newList.flat())
 }
 
 // https://octokit.github.io/rest.js/v18#users-list
