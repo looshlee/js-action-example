@@ -42,9 +42,8 @@ async function generateList(values) {
     newList.push(contents.data)
   }
  
- 
- console.log(newList.flat(), "newlist")
  userNameOnly(newList.flat())
+ isEmployee(newList.flat())
 }
 
 // https://octokit.github.io/rest.js/v18#users-list
@@ -58,8 +57,6 @@ async function getList(id) {
     })
   return response
 }
-
-
 
 
 function userNameOnly(data) {
