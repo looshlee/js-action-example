@@ -82,12 +82,12 @@ function oldestAccount(data) {
  data.forEach(d => ids.push(d.id))
  console.log("ids", ids)
  
- const oldest = ids.reduce((c, n) => 
-                           console.log("c", c)
-                           console.log("n", n)
+ const oldest = ids.reduce((c, n) => {
+  console.log("c", c)
+  console.log("n", n)
   // ternary operator. If current value is less than next one, keep curr value, else keep the next value                         
   n < c ? n : c
-);
+ });
  console.log(oldest);
 }
 
